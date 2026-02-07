@@ -7,11 +7,11 @@
     "drmKey": null
   },
   "002/1": {
-    "url": "https://bitmovin-a.akamaihd.net/content/MI201109210084_1/m3u8s/f08e80da-bf1d-4e3d-8899-f0f6155f6efa.m3u8",
+    "url": "https://example.com/live/stream2.mpd",
     "userAgent": "Mozilla/5.0",
-    "referer": "https://bitmovin.com",
-    "origin": "https://bitmovin.com",
-    "drmKey": null
+    "referer": "https://example2.com",
+    "origin": "https://example2.com",
+    "drmKey": "7ad888ee5dd6496a8c2c77a6284ff936:718716c435914901d2551930a256974e"
   },
   "003/2": {
     "url": "https://mnmedias.api.telequebec.tv/m3u8/29880.m3u8",
