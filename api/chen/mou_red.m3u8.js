@@ -1,35 +1,21 @@
+import fs from "fs";
+import path from "path";
 import fetch from "node-fetch";
-
-// جدول القنوات
-const channels = {
-  "001/4": {
-    url: "https://example.com/live/stream1.m3u8",
-    userAgent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64)",
-    referer: "https://example.com",
-    origin: "https://example.com",
-    drmKey: null
-  },
-  "002/1": {
-    url: "https://example.com/live/stream2.mpd",
-    userAgent: "Mozilla/5.0",
-    referer: "https://example2.com",
-    origin: "https://example2.com",
-    drmKey: "17774f82a3b9e33ea7a149596acbb20f"
-  },
-  "003/2": {
-    url: "https://example3.com/live/stream3.m3u8",
-    userAgent: "Mozilla/5.0",
-    referer: "https://example3.com",
-    origin: "https://example3.com",
-    drmKey: null
-  }
-};
 
 export default async function handler(req, res) {
   try {
     const { id } = req.query;
 
-    if (!id || !channels[id]) {
+    if (!id) {
+      return res.status(400).send("#EXTM3U\n# Missing id");
+    }
+
+    // قراءة القنوات من ملف JSON
+    const channelsPath = path.resolve("./channels.json");
+    const channelsData = fs.readFileSync(channelsPath, "utf-8");
+    const channels = JSON.parse(channelsData);
+
+    if (!channels[id]) {
       return res.status(404).send("#EXTM3U\n# Channel Not Found");
     }
 
@@ -48,7 +34,7 @@ export default async function handler(req, res) {
     res.setHeader("Content-Type", "application/vnd.apple.mpegurl");
     res.setHeader("Access-Control-Allow-Origin", "*");
 
-    // لو فيه drmKey ممكن تضيفه لاحقاً في ملف m3u8
+    // لو فيه drmKey، ممكن نضيفه هنا لاحقاً في ملف m3u8
     res.send(data);
 
   } catch (err) {
