@@ -1,37 +1,22 @@
 {
   "001/4": {
+    "type": "hls",
     "url": "http://koraaa.store/AD-1/tracks-v1a1/mono.m3u8",
-    "userAgent": "",
-    "referer": "",
-    "origin": "",
-    "drmKey": null
+    "headers": {}
   },
-  "002/1": {
-    "url": "https://example.com/live/stream2.mpd",
-    "userAgent": "Mozilla/5.0",
-    "referer": "https://example2.com",
-    "origin": "https://example2.com",
-    "drmKey": "7ad888ee5dd6496a8c2c77a6284ff936:718716c435914901d2551930a256974e"
-  },
-  "003/2": {
-    "url": "https://mnmedias.api.telequebec.tv/m3u8/29880.m3u8",
-    "userAgent": "Mozilla/5.0",
-    "referer": "https://mnmedias.api.telequebec.tv",
-    "origin": "https://mnmedias.api.telequebec.tv",
-    "drmKey": null
-  },
-  "004/5": {
-    "url": "https://cph-p2p-msl.akamaized.net/hls/live/2000341/test/master.m3u8",
-    "userAgent": "Mozilla/5.0",
-    "referer": "https://cph-p2p-msl.akamaized.net",
-    "origin": "https://cph-p2p-msl.akamaized.net",
-    "drmKey": null
-  },
-  "005/7": {
-    "url": "https://demo.unified-streaming.com/k8s/features/stable/video/tears-of-steel/tears-of-steel.ism/.m3u8",
-    "userAgent": "Mozilla/5.0",
-    "referer": "https://demo.unified-streaming.com",
-    "origin": "https://demo.unified-streaming.com",
-    "drmKey": null
+
+  "sport1": {
+    "type": "mpd",
+    "url": "https://example.com/live.mpd",
+    "headers": {
+      "user-agent": "Mozilla/5.0",
+      "referer": "https://example.com/",
+      "origin": "https://example.com"
+    },
+    "drm": {
+      "type": "clearkey",
+      "keyid": "7ad888ee5dd6496a8c2c77a6284ff936",
+      "key": "718716c435914901d2551930a256974e"
+    }
   }
 }
